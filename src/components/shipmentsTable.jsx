@@ -2,9 +2,9 @@ import React from "react";
 
 const ShipmentsTable = ({ shipments, onEdit, onDelete, onRowClick }) => {
   return (
-    <table className="table-fixed m-10 text-indigo-400 border-collapse">
+    <table className="table-fixed m-1 border-collapse">
       <thead className="bg-gray-100">
-        <tr className="rounded-t">
+        <tr className="rounded-t" style={{ borderBottom: "2px solid #F3F5F6" }}>
           <th className="p-4 text-left whitespace-nowrap">Order No.</th>
           <th className="p-4 text-left whitespace-nowrap">Delivery Date</th>
           <th className="p-4 text-left whitespace-nowrap">Customer</th>
@@ -18,7 +18,8 @@ const ShipmentsTable = ({ shipments, onEdit, onDelete, onRowClick }) => {
         {shipments.map((shipment, index) => (
           <tr
             key={index}
-            className="hover:bg-gray-200 cursor-pointer"
+            className="hover:bg-gray-200 cursor-pointer bg-white"
+            style={{ borderBottom: "2px solid #F3F5F6" }}
             onClick={() => onRowClick(shipment)}
           >
             <td className="p-4">{shipment.orderNo}</td>

@@ -33,19 +33,22 @@ function App() {
 
   if (selectedShipment) {
     return (
-      <div>
+      <div className="bg-white p-5 m-auto w-90 rounded mt-10">
+        <button onClick={() => setSelectedShipment(null)}></button>
+        <div className="pt-4 pb-4">
+          <hr></hr>
+        </div>
         <h1 className="text-4xl font-bold underline text-center m-10">
           Shipment details
         </h1>
-        <button onClick={() => setSelectedShipment(null)}></button>
         <ShipmentDetails shipment={selectedShipment}></ShipmentDetails>
       </div>
     );
   }
 
   return (
-    <div>
-      <h1 className="text-4xl font-bold underline text-center m-10">
+    <div className="text-gray-500 p-5 m-auto w-90 rounded mt-10">
+      <h1 className="text-4xl font-bold underline text-center mb-10">
         Shipments
       </h1>
       {isLoading ? (
