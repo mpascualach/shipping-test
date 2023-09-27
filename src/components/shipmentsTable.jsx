@@ -15,10 +15,10 @@ const ShipmentsTable = ({ shipments, onEdit, onDelete }) => {
         </tr>
       </thead>
       <tbody>
-        {shipments.map((shipments, index) => {
+        {shipments.map((shipment, index) => (
           <tr key={index}>
-            <td>{shipments.orderNo}</td>
-            <td>{shipment.deliveryDate}</td>
+            <td>{shipment.orderNo}</td>
+            <td>{shipment.date}</td>
             <td>{shipment.customer}</td>
             <td>{shipment.trackingNo}</td>
             <td>{shipment.status}</td>
@@ -27,8 +27,8 @@ const ShipmentsTable = ({ shipments, onEdit, onDelete }) => {
               <button onClick={() => onEdit(shipment)}>Edit</button>
               <button onClick={() => onDelete(shipment.id)}>Delete</button>
             </td>
-          </tr>;
-        })}
+          </tr>
+        ))}
       </tbody>
     </table>
   );

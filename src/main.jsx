@@ -6,6 +6,8 @@ import { Provider } from "react-redux";
 import rootReducer from "./reducers/reducers.js";
 import { configureStore } from "@reduxjs/toolkit";
 
+import "./tailwind.css";
+
 const store = configureStore({
   reducer: rootReducer,
 });

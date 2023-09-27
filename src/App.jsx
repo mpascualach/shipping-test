@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchShipments } from "./reducers/shipmentSlice.js";
-import shipmentsTable from "./components/shipmentsTable.jsx";
+import ShipmentsTable from "./components/shipmentsTable.jsx";
 
 function App() {
   const dispatch = useDispatch();
@@ -13,6 +13,14 @@ function App() {
     dispatch(fetchShipments());
   }, [dispatch]);
 
+  const handleEdit = (shipment) => {
+    console.log("Edit shipment", shipment);
+  };
+
+  const handleDelete = (shipment) => {
+    console.log("Delete shipment", shipment);
+  };
+
   return (
     <div>
       <h1>Shipments</h1>
@@ -20,9 +28,11 @@ function App() {
         <p>Loading...</p>
       ) : shipments && shipments.length > 0 ? (
         <ul>
-          {shipments.map((shipment, index) => (
-            <li key={index}>{shipment.name}</li>
-          ))}
+          <ShipmentsTable
+            shipments={shipments}
+            onEdit={handleEdit}
+            onDelete={handleDelete}
+          ></ShipmentsTable>
         </ul>
       ) : (
         <p>No shipments available.</p>
